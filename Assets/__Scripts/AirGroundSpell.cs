@@ -8,7 +8,7 @@ public class AirGroundSpell : PT_MonoBehaviour {
 		//^This allows the duration to range from 3.5 to 4.5
 		public float fadeTime = 1f; //Length of time to fade
 		public float timeStart; //Birth time of this GameObject
-		public float damagePerSecond = 10;
+		public float damagePerSecond = 4;
 		
 		// Use this for initialization
 		void Start () {

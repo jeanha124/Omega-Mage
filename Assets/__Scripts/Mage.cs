@@ -233,6 +233,7 @@ public class Mage : PT_MonoBehaviour {
 		//Now this cares what was tapped
 		switch (actionStartTag) {
 		case "Mage":
+		 	
 			//Do nothing
 			break;
 		case "Ground":
@@ -590,6 +591,5 @@ public class Mage : PT_MonoBehaviour {
 	public void ClearInput(){
 		mPhase = MPhase.idle;
 	}
-
 
 }

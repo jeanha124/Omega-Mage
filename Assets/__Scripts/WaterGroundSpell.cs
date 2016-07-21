@@ -8,7 +8,7 @@ public class WaterGroundSpell : PT_MonoBehaviour {
 	//^This allows the duration to range from 3.5 to 4.5
 	public float fadeTime = 1f; //Length of time to fade
 	public float timeStart; //Birth time of this GameObject
-	public float damagePerSecond = 10;
+	public float damagePerSecond = 6;
 	
 	// Use this for initialization
 	void Start () {
@@ -47,7 +47,7 @@ public class WaterGroundSpell : PT_MonoBehaviour {
 		if (go == null) {
 			go = other.gameObject;
 		}
-		Utils.tr ("Water hit", go.name);
+		Utils.tr ("Water blast", go.name);
 	}
 	
 	void OnTriggerStay(Collider other){

@@ -13,7 +13,7 @@ public class EarthGroundSpell : PT_MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		timeStart = Time.time;
-		duration = Random.Range(duration-durationVariance, duration+durationVariance);
+		duration = 6;
 		//^ Set the duration to a number between 3.5 and 4.5 (defaults)
 	}
 	
@@ -35,11 +35,10 @@ public class EarthGroundSpell : PT_MonoBehaviour {
 			pos = loc;
 		}
 		
-		if (u > 1) {
-			//If this has lived longer than  duration...
-			Destroy(gameObject); //...destroy it
-		}
+
 	}
+
+
 	
 	void OnTriggerEnter(Collider other){
 		//Announce when another object enters the collider
@@ -47,12 +46,10 @@ public class EarthGroundSpell : PT_MonoBehaviour {
 		if (go == null) {
 			go = other.gameObject;
 		}
-		Utils.tr ("Earth hit", go.name);
+		Utils.tr ("Earth heal", go.name);
 	}
 	
 	void OnTriggerStay(Collider other){
-		//Actually damage the other
-		//Get a reference to the EnemyBug script component of the other
 		EnemyBug recipient = other.GetComponent<EnemyBug> ();
 		//If there is an EnemyBug component, damage it with fire
 		if (recipient != null) {
