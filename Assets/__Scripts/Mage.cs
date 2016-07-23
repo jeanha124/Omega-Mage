@@ -233,7 +233,7 @@ public class Mage : PT_MonoBehaviour {
 		//Now this cares what was tapped
 		switch (actionStartTag) {
 		case "Mage":
-		 	
+			SelectElement();
 			//Do nothing
 			break;
 		case "Ground":
@@ -305,6 +305,7 @@ public class Mage : PT_MonoBehaviour {
 			break;
 			//TODO: Add other elements types later
 		case ElementType.air:
+			Shield();
 			GameObject airGO;
 			foreach(Vector3 pt in linePts){
 				airGO = Instantiate(airGroundSpellPrefab) as GameObject;
@@ -313,6 +314,7 @@ public class Mage : PT_MonoBehaviour {
 			}
 			break;
 		case ElementType.earth:
+			Heal();
 			GameObject earthGO;
 			foreach(Vector3 pt in linePts){
 				earthGO = Instantiate(earthGroundSpellPrefab) as GameObject;
@@ -334,6 +336,21 @@ public class Mage : PT_MonoBehaviour {
 		ClearElements ();
 
 	}
+
+	void Heal(){
+		health = 5;
+	}
+	
+	void Shield(){
+		int i = 5;
+		while (i > 0) {
+			invincibleBool = true;
+			i--;
+		}
+		invincibleBool = false;
+		ClearElements ();
+	}
+
 
 	public void WalkTo(Vector3 xTarget){
 		walkTarget = xTarget;
@@ -590,6 +607,20 @@ public class Mage : PT_MonoBehaviour {
 	//Stop any active drag or other mouse input
 	public void ClearInput(){
 		mPhase = MPhase.idle;
+	}
+	
+	void SelectElement(){
+		if (selectedElements.Count == 0)
+			return;
+
+		switch (selectedElements [0].type) {
+		case ElementType.air:
+			Shield ();
+			break;
+		case ElementType.earth:
+			Heal ();
+			break;
+		}
 	}
 
 }
