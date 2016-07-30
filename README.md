@@ -9,3 +9,5 @@ Tried making:
   
 Since I wasn't able to do it, I just used the same type of spell as the fire element as attacking
 and just changed the color to match the elements and the way the linear spells will look when activated...
+
+I did input the heal and shield ones by clicking on the player. The healing should work, but I don't think I properly made the shield work.
